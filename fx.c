@@ -1,7 +1,7 @@
 //fx.c version 1.0
-// Calculadora que admite fórmulas matemáticas:
+// Calculadora que admite fÃ³rmulas matemÃ¡ticas:
 //__next={coments, debug, no pointer, idiom=es}
-//1 parsec  3.086 × 10^16 metros
+//1 parsec  3.086 Ã— 10^16 metros
 #include <stdio.h>
 
 //#include <conio.h>
@@ -20,7 +20,7 @@ typedef long double Ldoble;
 typedef int bool;
 
 int i,p,ruptura;
-str80 formula="";
+MaxCalcCad formula="";
 Ldoble resultado=0L;
 bool error;
 bool _fact=0;
@@ -91,7 +91,7 @@ char *copy(char *cadena, int index, int count)
 	if((cp=strdup(cadena+index))==NULL){
 		//gotoxy(10,25);
 		printf("\n\n");
-		printf("Error en asignación de memoria. _copy()");
+		printf("Error en asignaciÃ³n de memoria. _copy()");
 		exit(1);
 	}
 	cp[count]='\0';
@@ -261,7 +261,7 @@ Ldoble proc_as_num(MaxCalcCad formula,char *c,int *p){
 		f=fact(f);
 		*c=sigp(formula,p);
 	}
-	else if(*c=='²'){
+	else if(*c=='Â²'){
 		f=f*f;
 		*c=sigp(formula,p);
 	}
@@ -274,7 +274,7 @@ Ldoble proc_as_new_exp(MaxCalcCad formula,char *c, int *p){
 	f=expr(formula,p,c);
 	if(*c==')'){
 		*c=sigp(formula,p);
-		if(*c=='²'){
+		if(*c=='Â²'){
 			f*=f;
 			*c=sigp(formula,p);
 		}
@@ -308,7 +308,7 @@ Ldoble proc_like_stdfunc(MaxCalcCad formula,char *c,int *p){
 		f=fct(formula,c,p);
 		f=sqrt(f);
 	}
-	else if(!strcmp(copy(formula,*p,1),"¿")){
+	else if(!strcmp(copy(formula,*p,1),"Â¿")){
 		*c=sigp(formula,p);
 		f=fct(formula,c,p);
 		f=sqrt(f);
@@ -396,7 +396,7 @@ Ldoble proc_like_stdfunc(MaxCalcCad formula,char *c,int *p){
 		f=expl(f);
 	}	
 	else if(!strcmp(copy(formula,*p,1),"E")){
-	   //++*p; no se incrementa porque se sumaría 0 al valor del puntero
+	   //++*p; no se incrementa porque se sumarÃ­a 0 al valor del puntero
 	   *c=sigp(formula,p);
 	   f=(Ldoble) 2.7182818284590452353602874713526625L;
 	}
